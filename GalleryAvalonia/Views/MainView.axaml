@@ -1,0 +1,33 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:GalleryAvalonia.ViewModels"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="GalleryAvalonia.Views.MainView"
+             xmlns:local="using:GalleryAvalonia">
+
+
+     <Grid>
+          <Grid.RowDefinitions>
+          <RowDefinition Height="5*"/>
+          <RowDefinition/>
+          <RowDefinition/>
+          </Grid.RowDefinitions>
+      <Grid.ColumnDefinitions>
+          <ColumnDefinition/>
+          <ColumnDefinition/>
+          </Grid.ColumnDefinitions>
+         <ItemsControl Padding="25" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" ItemsSource="{Binding paintings}">
+             <ItemsControl.ItemTemplate>
+                 <DataTemplate>
+                     <local:PaintingDisplay/>
+                 </DataTemplate>
+             </ItemsControl.ItemTemplate>
+            </ItemsControl>
+         <Label Content="{Binding paintingnumber}"/>
+         <Button Grid.Row="2" Command="{Binding prviuscommand}"  IsEnabled="{Binding NotFirst}" VerticalAlignment="Stretch" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"  HorizontalAlignment="Stretch" Content="previus"/>
+         <Button Grid.Row="2" Grid.Column="1" IsEnabled="{Binding NotLast}" Command="{Binding nextcommand}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Content="next"/>
+     </Grid>
+    
+ </UserControl>
